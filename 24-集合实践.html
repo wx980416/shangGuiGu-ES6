@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>25-集合实践</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4]
+      let arr2 = [4, 5, 6]
+      // 1.去重
+      {
+        let res = [...new Set(arr)]
+        console.log(res) //  [1, 2, 3, 4, 5, 6]
+      }
+
+      // 2.交集
+      {
+        let res = [...new Set(arr)].filter((v) => new Set(arr2).has(v))
+        console.log(res) // [4, 5, 6]
+      }
+
+      // 3.并集
+      {
+        let res = [...new Set([...arr, ...arr2])]
+        console.log(res) // [1, 2, 3, 4, 5, 6]
+      }
+
+      // 4.差集
+      {
+        let res = [...new Set(arr)].filter((v) => !new Set(arr2).has(v))
+        console.log(res) //  [1, 2, 3]
+      }
+    </script>
+  </body>
+</html>

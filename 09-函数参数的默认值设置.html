@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09-函数参数的默认值设置</title>
+  </head>
+  <body>
+    <script>
+      // 1.形参初始值(一般位置靠后)
+      // function add(a, b, c = 1) {
+      //   return a + b + c
+      // }
+      // console.log(add(2, 2)) // 2 + 2 + 1
+
+      // 2.与解构赋值结合(也可以使用默认值)
+      function person({ name, age, location = 'Chongqin' }) {
+        console.log(name) // wangxin
+        console.log(age) // 22
+        console.log(location) // Chongqin
+      }
+      person({
+        name: 'wangxin',
+        age: 22,
+      })
+    </script>
+  </body>
+</html>

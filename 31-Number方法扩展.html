@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>31-数值方法扩展</title>
+  </head>
+  <body>
+    <script>
+      // 0.Number.EPSILON 是 JavaScript 表示的最小精度
+      {
+        function equal(a, b) {
+          if (Math.abs(a - b) < Number.EPSILON) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        console.log(0.1 + 0.2 === 0.3); // false
+        console.log(equal(0.1 + 0.2, 0.3)); // true
+      }
+
+      // 1.二进制和八进制
+      {
+        let b = 0b1010;
+        let o = 0o777;
+        console.log(b); // 10
+        console.log(o); // 511
+      }
+
+      // 2.Number.isFinite() 检测一个数值是否为有限的
+      {
+        console.log(Number.isFinite(100)); // true
+        console.log(Number.isFinite(100 / 0)); // false
+        console.log(Number.isFinite(Infinity)); // false
+      }
+
+      // 3.Number.isNaN() 检测一个值是否为 NaN
+      {
+        console.log(Number.isNaN(123)); // false
+        console.log(Number.isNaN(NaN)); // true
+      }
+
+      // 4.Number.parseInt() 与 Number.parseFloat() 字符串转换整数
+      {
+        console.log(Number.parseInt('2121231放技能')); // 2121231
+        console.log(Number.parseFloat('2121.231放技能')); // 2121.231
+      }
+
+      // 5.Number.isInteger 判断一个数值是否为整数
+      console.log(Number.isInteger(5)); // true
+      console.log(Number.isInteger(5.5)); // false
+
+      // 6.Math.trunc 去除一个数的小数部分，返回整数部分
+      console.log(Math.trunc(5.5)); // 5
+
+      // 7.Math.sign 判断一个数到底是正数 负数 还是零
+      {
+        console.log(Math.sign(10)); // 1
+        console.log(Math.sign(0)); // 0
+        console.log(Math.sign(-10)); // -1
+      }
+    </script>
+  </body>
+</html>

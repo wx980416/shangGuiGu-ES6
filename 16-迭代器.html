@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>迭代器</title>
+  </head>
+  <body>
+    <script>
+      // for...of 循环，iterator 接口主要供 for...of 消费
+      // 比如声明一个数组
+      const arr = [1, 2, 3]
+      // for...of 循环
+      for (let v of arr) {
+        console.log(v)
+        // 1
+        // 2
+        // 3
+        // v 指的是每一项的值
+        // for...in 循环中 v 指的是其键名
+      }
+      // 如果打印 arr 就会发现其 __proto__ 上有个 Symbol(Symbol.iterator) 属性
+      console.log(arr)
+      // Symbol(Symbol.iterator) 就是迭代器
+
+      // 工作原理：
+      // 1.创建一个指针对象，指向当前数据结构的起始位置
+      console.log(arr[Symbol.iterator]())
+      const iterator = arr[Symbol.iterator]()
+      // 2.第一次调用对象的 next 方法，指针自动指向数据结构的第一个成员
+      console.log(iterator.next())
+      // 3.接下来不断调用 next 方法，指针一直往后移动，直到指向最后一个成员
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next())
+      // 4.每次调用 next 方法返回一个包含 value 和 done 属性的对象
+      // {value: 1, done: false}
+      // {value: 2, done: false}
+      // {value: 3, done: false}
+      // {value: 4, done: false}
+      // {value: undefined, done: true}
+      // done 属性标志是否循环遍历完
+    </script>
+  </body>
+</html>

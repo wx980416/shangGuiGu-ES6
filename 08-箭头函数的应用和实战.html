@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-箭头函数的应用和实战</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ad"></div>
+    <script>
+      // 需求1 点击 div 2s后颜色变成粉色
+      let ad = document.getElementById('ad')
+      ad.addEventListener('click', function () {
+        // 使用箭头函数 使得定时器内部可以直接使用 this，不需要再额外保存 this
+        // let _this = this
+        setTimeout(() => {
+          // 修改背景颜色
+          this.style.background = 'pink'
+        }, 2000)
+      })
+
+      // 需求2 从数组中返回偶数的元素
+      const arr = [1, 6, 9, 10, 100, 25]
+      // const res = arr.filter(function (v, i) {
+      //   if (v % 2 === 0) {
+      //     return true
+      //   } else {
+      //     return false
+      //   }
+      // })
+      // 箭头函数简写了回调函数，更加简洁
+      const res = arr.filter((v, i) => v % 2 === 0)
+      console.log(res) // [6, 10, 100]
+
+      // 总结：
+      // 适合于 this 无关的回调，定时器，数组的方法回调
+      // 不适合于 this 有关的回调，事件相关的回调，对象的方法
+    </script>
+  </body>
+</html>

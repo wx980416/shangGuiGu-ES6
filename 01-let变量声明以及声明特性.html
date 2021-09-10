@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-let变量声明以及声明特性</title>
+  </head>
+  <body>
+    <script>
+      // 声明变量
+      {
+        let a
+        let b, c, d
+        let e = 100
+        let f = 520,
+          g = 'wangxin',
+          h = []
+      }
+
+      /* 特性 */
+
+      // 1.变量不能重复声明
+      {
+        let name = '王鑫'
+        let name = 'wangxin' // Identifier 'name' has already been declared
+      }
+
+      // 2.块级作用域
+      // es5:全局、函数、eval
+      // if else while for 中 {}
+      {
+        {
+          let my = 'wangxin'
+        }
+        console.log(my) // my is not defined
+      }
+
+      // 3.不存在变量提升
+      {
+        console.log(num) // undefined var 声明的变量存在变量提升
+        console.log(NUM) //  Cannot access 'NUM' before initialization
+        var num = 100
+        let NUM = 100
+      }
+
+      // 4.不影响作用域链
+      {
+        let my = 'wangxin'
+        function fn() {
+          console.log(my) // wangxin 完美输出，不影响作用域链
+        }
+        fn()
+      }
+    </script>
+  </body>
+</html>

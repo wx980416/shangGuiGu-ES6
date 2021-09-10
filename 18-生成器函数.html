@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生成器函数</title>
+  </head>
+  <body>
+    <script>
+      function* fn() {
+        // yield 相当于函数的暂停标记，也可以认为是函数的分隔符
+        // 每调用一次 next 方法，执行一段代码
+        console.log(1)
+        yield '我是 yield 语句'
+        console.log(2)
+        yield '我是 yield 语句'
+        console.log(3)
+        yield '我是 yield 语句'
+        console.log(4)
+      }
+      let iterator = fn()
+      // 通过 next 迭代调用
+      // 生成器函数返回的结果是迭代器对象，调用迭代器对象的 next 方法可以得到 yield 语句后的值
+      // iterator.next() // 1
+      // iterator.next() // 2
+      // iterator.next() // 3
+      // iterator.next() // 4
+
+      console.log(iterator.next()) // 1 {value: "我是 yield 语句", done: false}
+      console.log(iterator.next())
+      console.log(iterator.next())
+      console.log(iterator.next()) // 4 {value: undefined, done: true}
+
+      // for...of 会遍历函数所以内容
+      for (const v of fn()) {
+        console.log(v)
+        // 1
+        // 我是 yield 语句
+        // 2
+        // 我是 yield 语句
+        // 3
+        // 我是 yield 语句
+        // 4
+      }
+    </script>
+  </body>
+</html>

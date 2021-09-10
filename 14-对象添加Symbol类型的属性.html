@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14-对象添加Symbol类型的属性</title>
+  </head>
+  <body>
+    <script>
+      // 方式一
+      // 向对象中添加方法 up down
+      let game = {
+        up: '',
+        down: '',
+      }
+      // 不确定 game 对象中是否有 up down 方法时
+      // 创建一个对象
+      let methods = {
+        up: Symbol(),
+        down: Symbol(),
+      }
+      // 扩展方法
+      game[methods.up] = function () {
+        console.log('我是 up 方法')
+      }
+      game[methods.down] = function () {
+        console.log('我是 down 方法')
+      }
+      // game[methods.down]()
+      // console.log(game)
+
+      // 方式二
+      let me = {
+        name: 'wangxin',
+        [Symbol('say')]: function () {
+          console.log('我可以发言')
+        },
+        [Symbol('run')]: function () {
+          console.log('我可以跑')
+        },
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24-Set</title>
+  </head>
+  <body>
+    <script>
+      // 创建一个空集合
+      let s = new Set()
+      console.log(typeof s) // object
+      // 集合本质是成员的值都是唯一的对象
+
+      // 创建一个非空集合
+      let s1 = new Set([1, 2, 3, 4, 5])
+      console.log(s1) // {1, 2, 3, 4, 5}
+
+      // 集合属性与方法
+      // size 返回集合的元素个数
+      console.log(s1.size) // 5
+      // add() 添加新元素
+      console.log(s1.add(6))
+      // delete() 删除元素
+      console.log(s1.delete(6)) // 返回 true
+      console.log(s1) // {1, 2, 3, 4, 5}
+      // has() 检测是否存在某个值
+      console.log(s1.has(1)) // true
+      // clear() 清空集合
+      s1.clear()
+      console.log(s1) // {}
+
+      // 集合实现了 iterator 接口，所以可以使用『扩展运算符』和『for…of…』进行遍历
+      for (const v of s1) {
+        console.log(v)
+      }
+    </script>
+  </body>
+</html>

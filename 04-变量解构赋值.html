@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-变量解构赋值</title>
+  </head>
+  <body>
+    <script>
+      // 从数组和对象中提取值，对变量进行赋值
+
+      // 1.数组解构
+      {
+        const arr = ['重庆', '北京', '上海']
+        let [cq, bj, sh] = arr
+        console.log(cq)
+        console.log(bj)
+        console.log(sh)
+      }
+
+      // 2.对象解构
+      {
+        const obj = {
+          name: '王鑫',
+          age: 22,
+          say: function () {
+            console.log('我是王鑫')
+          },
+        }
+        let { name, age, say } = obj
+        console.log(name)
+        console.log(age)
+        say()
+      }
+    </script>
+  </body>
+</html>

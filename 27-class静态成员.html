@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26-class</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        // static 定义静态方法和属性
+        static _type = '我是静态属性'
+        static _say = function () {
+          console.log('我是静态方法')
+        }
+      }
+
+      let me = new Person()
+      Person._say() // 我是静态方法
+      console.log(Person._type) // 我是静态属性
+      // 实例成员无法访问静态属性和方法
+      console.log(me._type) // undefined
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26-class</title>
+  </head>
+  <body>
+    <script>
+      // class 声明类
+      class Person {
+        // constructor 定义构造函数初始化
+        constructor(name, age) {
+          this.name = name
+          this.age = age
+        }
+
+        // 方法（必须使用 es6 的语法）
+        say() {
+          console.log('Hello！')
+        }
+      }
+
+      // 实例化
+      let me = new Person('王鑫', 22)
+      console.log(me)
+      me.say() // Hello！
+    </script>
+  </body>
+</html>

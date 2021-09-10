@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17-迭代器自定义遍历对象</title>
+  </head>
+  <body>
+    <script>
+      // 声明一个对象
+      const obj = {
+        name: '中国直辖市',
+        items: ['重庆', '北京', '上海', '天津'],
+        // 自定义迭代器
+        [Symbol.iterator]() {
+          // 索引变量
+          let index = 0
+          // 保存 this
+          let _this = this
+          // 返回一个指针对象
+          return {
+            // 创建 next 方法，并指向第一个遍历成员
+            next: function () {
+              // 判断是否遍历完
+              if (index < _this.items.length) {
+                const res = { value: _this.items[index], done: false }
+                // 下标自增
+                index++
+                // 返回结果
+                return res
+              } else {
+                // 遍历完成
+                return { value: undefined, done: true }
+              }
+            },
+          }
+        },
+      }
+      // for...of 循环遍历，打印 items
+      for (let v of obj) {
+        console.log(v)
+        // 重庆
+        // 北京
+        // 上海
+        // 天津
+        // 实现了自定义遍历对象属性的要求
+      }
+    </script>
+  </body>
+</html>

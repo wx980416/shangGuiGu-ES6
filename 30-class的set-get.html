@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30-class的set-get</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        get name() {
+          console.log('name 属性被读取了')
+          return '我是返回的值'
+        }
+
+        set name(newVal) {
+          console.log('name 属性被修改了')
+        }
+      }
+
+      let me = new Person()
+      // console.log(me.name)
+      // name 属性被读取了
+      // 我是返回的值
+
+      me.name = 'wangxin'
+      // name 属性被修改了
+    </script>
+  </body>
+</html>

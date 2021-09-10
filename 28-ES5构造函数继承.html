@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28-ES5构造函数继承</title>
+  </head>
+  <body>
+    <script>
+      function Father(name, age) {
+        this.name = name
+        this.age = age
+      }
+      Father.prototype.say = function () {
+        console.log('Hello！')
+      }
+
+      function Son(name, age, shool) {
+        Father.call(this, name, age)
+        this.shool = shool
+      }
+      Son.prototype = new Father()
+      Son.prototype.constructor = Son
+
+      let me = new Son('王鑫', 22, '重庆科技学院')
+      console.log(me)
+      me.say() // Hello！
+    </script>
+  </body>
+</html>

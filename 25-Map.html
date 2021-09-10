@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>25-Map</title>
+  </head>
+  <body>
+    <script>
+      // 和集合 Set 类似
+      // 但“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键
+      let m = new Map()
+      let key = {
+        keyName: '我是键名',
+      }
+      m.set(key, '我是键值')
+      console.log(m)
+      // Object => "我是键值"
+      // key: {keyName: "我是键名"
+      // value: "我是键值"
+
+      // get() 返回键名对象的键值
+      console.log(m.get(key)) // 我是键值
+    </script>
+  </body>
+</html>

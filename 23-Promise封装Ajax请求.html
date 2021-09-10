@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23-Promise封装Ajax请求</title>
+  </head>
+  <body>
+    <script>
+      const p = new Promise(function (reslove, reject) {
+        // 1.创建对象
+        const xhr = new XMLHttpRequest()
+        // 2.初始化
+        xhr.open('GET', 'https://api.apiopen.top/getJoke')
+        // 3.发送
+        xhr.send()
+        // 4.绑定事件，处理响应请求
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            // 判断响应状态码 200-299
+            if (xhr.status >= 200 && xhr.status < 300) {
+              // 成功
+              reslove(xhr.response)
+            } else {
+              // 失败
+              reject(xhr.status)
+            }
+          }
+        }
+      })
+      p.then((res) => {
+        console.log(res)
+      }).catch((err) => {
+        console.log(err)
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>29-ES6类继承</title>
+  </head>
+  <body>
+    <script>
+      class Father {
+        constructor(name, age) {
+          this.name = name
+          this.age = age
+        }
+        say() {
+          console.log('Hello！')
+        }
+      }
+      // extends 继承父类
+      class Son extends Father {
+        constructor(name, age, school) {
+          // super 调用父级构造方法
+          super(name, age)
+          this.school = school
+        }
+      }
+
+      let me = new Son('王鑫', 22, '重庆科技学院')
+      console.log(me)
+      me.say() // Hello！
+    </script>
+  </body>
+</html>
